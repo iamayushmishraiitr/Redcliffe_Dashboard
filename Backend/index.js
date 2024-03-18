@@ -6,6 +6,8 @@ import clientRoute from "./Routes/clientRoute.js"
 import reagentRoute from "./Routes/reagentRoute.js"
 import clientOrder from "./Routes/clientOrder.js"
 import clientOrderDetails from "./Routes/clientOrderDetails.js";
+import verifyToken from "./Authorization/jwtmiddleware.js";
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -24,6 +26,7 @@ mongoose
   app.listen(3000, function () {
     console.log("server is running on port 3000");
   }); 
+
 app.use('/admin',adminRoute)
 app.use('/client',clientRoute)
 app.use('/reagent',reagentRoute)

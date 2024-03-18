@@ -1,18 +1,24 @@
 import express from "express"
+
 const router= express.Router()
 import {orderDetail} from "../models/clientOrderDetails.js"
-router.post('/',async (req,res)=>{
+router.post('/', async (req,res)=>{
     console.log(req.body)
    const newData= new orderDetail({
       name: req.body.name ,
       location : req.body.location,
       units:  req.body.units
    })
-  await newData.save()
-   .then(()=>console.log('Data saved successfully'))
-   .catch((er)=>console.log('Data saved successfully'))
-    
+   try{
+      const response=await newData.save();
+      if(response){
+         res.status(200).send({ message: 'Data saved successfully' })
+      }
+   }catch(err){
+      res.status(400).send({ message: 'Data not saved successfully' })
+   } 
 })
+
 router.get('/', async(req,res)=>{
    try {
       const reagents = await orderDetail.find(); 
