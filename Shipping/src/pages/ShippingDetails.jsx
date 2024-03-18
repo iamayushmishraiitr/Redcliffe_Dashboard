@@ -18,7 +18,7 @@ const ShippingDetails = () => {
     const handleUpdate = async (id) => {
         try {
             const order={}
-            const res = await axios.put('http://localhost:3000/clientorderDeatils',);
+            const res = await axios.put('http://localhost:3000/clientorderDeatils');
             if (res) {
                 alert("Order Placed!");
                 setPlaced("Delivered");

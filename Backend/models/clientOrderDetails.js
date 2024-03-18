@@ -1,17 +1,21 @@
 
 import mongoose from "mongoose";
-const  clientOrderDetails = new mongoose.Schema({
+const clientOrderDetails = new mongoose.Schema({
   location: {
     type: String
   },
   units: {
-    type: Number 
+    type: Number
   },
-  name:{
-   type:String
-  }
+  name: {
+    type: String
+  },
+  Status: {
+    type: String,
+    default: "Pending"
+  },
 });
-export  const  orderDetail = mongoose.model('orderDetail', clientOrderDetails);
+export const orderDetail = mongoose.model('orderDetail', clientOrderDetails);
 
 
 // const newAdmin = new Client({
