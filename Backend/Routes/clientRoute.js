@@ -1,6 +1,7 @@
 import express from "express"
 import { Client } from "../models/clientmodel.js"
 import generateToken from "../Authorization/generateToken.js"
+
 const router=express.Router()
 router.post('/',async(req,res)=>{
   try {

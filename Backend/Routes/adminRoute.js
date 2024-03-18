@@ -1,6 +1,7 @@
 import express from "express"
 import { Admin } from "../models/adminmodel.js"
 import generateToken from "../Authorization/generateToken.js"
+
 const router= express.Router()
 router.post('/',async(request,response)=>{
     try {

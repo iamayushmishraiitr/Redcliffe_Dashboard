@@ -15,10 +15,10 @@ const ShippingDetails = () => {
             });
     }, []);
 
-    const handleUpdate = async (id) => {
+    const handleUpdate = async (order) => {
         try {
-            const order={}
-            const res = await axios.put('http://localhost:3000/clientorderDeatils');
+            const Data = { ...order, Status: { placed } };
+            const res = await axios.put(`http://localhost:3000/clientorderDeatils/${order._id}`, Data);
             if (res) {
                 alert("Order Placed!");
                 setPlaced("Delivered");
@@ -45,7 +45,7 @@ const ShippingDetails = () => {
                         <div className="py-2">{order.units}</div>
                         <div className="py-2">{order.Status}</div>
                         <div className="py-2">
-                            <button onClick={() => handleUpdate(order._id)} >{placed}</button>
+                            <button onClick={() => handleUpdate(order)} >{placed}</button>
                         </div>
                     </div>
                 ))}
