@@ -1,6 +1,5 @@
 import express from "express"
-import { useParams } from "react"
-
+ 
 const router = express.Router()
 import { orderDetail } from "../models/clientOrderDetails.js"
 router.post('/', async (req, res) => {
