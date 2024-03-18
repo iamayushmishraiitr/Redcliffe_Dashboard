@@ -10,7 +10,11 @@ import verifyToken from "./Authorization/jwtmiddleware.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin:["http://localhost:5174/"],
+  methods:["POST","GET"],
+}));
 mongoose
   .connect(
     "mongodb+srv://ayushmishra3358:am21410006iitr@project.zmdlyeb.mongodb.net/Project1?retryWrites=true&w=majority&appName=project",
