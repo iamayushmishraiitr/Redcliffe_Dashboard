@@ -62,7 +62,7 @@ const AdminOrderDetails = () => {
             <div className="py-2">{order.name}</div>
             <div className="py-2">{order.location}</div>
             <div className="py-2">{order.units}</div>
-            <div className="py-2">{order.status}</div>
+            <div className="py-2">{order.Status}</div>
           </div>
         ))}
       </div>
