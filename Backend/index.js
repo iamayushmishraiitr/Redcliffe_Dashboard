@@ -22,13 +22,6 @@ mongoose
   .then(() => {
     console.log("database is connnected");
 
-<<<<<<< HEAD
-app.use('/admin',adminRoute)
-app.use('/client',clientRoute)
-app.use('/reagent',verifyToken,reagentRoute)
-app.use('/clientOrder',verifyToken,clientOrder)
-app.use('/clientorderDeatils',clientOrderDetails )
-=======
   });
 app.listen(3000, function () {
   console.log("server is running on port 3000");
@@ -39,4 +32,3 @@ app.use('/client', clientRoute)
 app.use('/reagent', verifyToken, reagentRoute)
 app.use('/clientOrder', verifyToken, clientOrder)
 app.use('/clientorderDeatils', clientOrderDetails)
->>>>>>> bbb33260b194e1f710c8228426c729167bf7779f
