@@ -56,7 +56,7 @@ const AdminOrderDetails = () => {
           <div>Location</div>
           <div>Ordered Units To be Dispatched</div>
         </div>
-        {data.map((order, index) => (
+        {data && data.map((order, index) => (
           <div key={index} className="grid grid-cols-3 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200">
             <div className="py-2">{order.name}</div>
             <div className="py-2">{order.location}</div>

@@ -22,7 +22,7 @@ const ClientLogin = () => {
         password: password,
       });
       if (res) {
-        localStorage.setItem("Token-client", res.data.token);
+        localStorage.setItem("Token", res.data.token);
         localStorage.setItem("Location-client", res.data.location);  
         navigate("*");
         window.location.reload();

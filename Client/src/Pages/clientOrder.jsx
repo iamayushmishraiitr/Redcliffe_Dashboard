@@ -82,7 +82,7 @@ function ClientOrder() {
             <div>Stock</div>
             <div>Ordered Units</div>
           </div>
-          {newar.map((reagent, index) => (
+          {newar && newar.map((reagent, index) => (
             <div key={index} className="grid grid-cols-4 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200">
               <div className="py-2">{reagent.name}</div>
               <div className="py-2">{reagent.UsedIn.join(', ')}</div>

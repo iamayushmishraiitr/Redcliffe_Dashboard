@@ -5,7 +5,12 @@ import axios from 'axios';
 const TableComponent = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/reagent', {})
+    console.log(localStorage.getItem('Token'));
+    axios.get('http://localhost:3000/reagent', {
+      headers:{
+        'token' : localStorage.getItem('Token'),
+      }
+    })
       .then((res) => {
         setData(res.data)
       })
@@ -23,7 +28,7 @@ const TableComponent = () => {
             <div>Stock</div>
             <div>Expiry Date</div>
           </div>
-          {data.map((reagent, index) => (
+          {data && data.map((reagent, index) => (
             <div key={index} className="grid grid-cols-4 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200">
               <div className="py-2">{reagent.name}</div>
               <div className="py-2">{reagent.UsedIn.join(', ')}</div>

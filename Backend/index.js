@@ -29,6 +29,6 @@ mongoose
 
 app.use('/admin',adminRoute)
 app.use('/client',clientRoute)
-app.use('/reagent',reagentRoute)
-app.use('/clientOrder',clientOrder)
-app.use('/clientorderDeatils',clientOrderDetails )
+app.use('/reagent',verifyToken,reagentRoute)
+app.use('/clientOrder',verifyToken,clientOrder)
+app.use('/clientorderDeatils',verifyToken,clientOrderDetails )

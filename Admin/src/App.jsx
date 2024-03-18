@@ -7,7 +7,7 @@ import Home from "./Pages/Home";
 import Navbar from "./component/Navbar";
 
 function App() {
-  const TOKEN = localStorage.getItem("Token-admin");
+  const TOKEN = localStorage.getItem("Token");
 
   return (
     <div>

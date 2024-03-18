@@ -1,5 +1,5 @@
 import jwt  from "jsonwebtoken"
-const SecretKey = "Secret-key";
+const SecretKey = "mishrajkpandaypathak";
 const generateToken = (email, password) => {
   const token = jwt.sign(
     {
@@ -7,7 +7,7 @@ const generateToken = (email, password) => {
       password: password,
     },
     SecretKey,
-    { expiresIn: 300 }
+    { expiresIn: '3d' }
   );
   return token;
 };
