@@ -5,7 +5,12 @@ import axios from 'axios';
 const TableComponent = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/reagent', {})
+    console.log(localStorage.getItem('Token'));
+    axios.get('http://localhost:3000/reagent', {
+      headers:{
+        'token' : localStorage.getItem('Token'),
+      }
+    })
       .then((res) => {
         setData(res.data)
       })

@@ -7,7 +7,7 @@ const Navbar = ({log}) => {
   
     const handleLog=(log)=>{
         if(log==="Logout"){
-            localStorage.removeItem("Token-admin"); 
+            localStorage.removeItem("Token"); 
             navigate("*");
             window.location.reload();
             alert("You are logged out!");

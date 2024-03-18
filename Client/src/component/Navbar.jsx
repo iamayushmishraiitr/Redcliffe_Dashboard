@@ -7,7 +7,7 @@ const Navbar = ({log}) => {
   
     const handleLog=(log)=>{
         if(log==="Logout"){
-            localStorage.removeItem("Token-client");
+            localStorage.removeItem("Token");
             localStorage.removeItem("Location-client");
             navigate("*");
             window.location.reload();

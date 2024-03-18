@@ -19,11 +19,11 @@ const AdminLogin = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:3000/admin', {
+            axios.post('http://localhost:3000/admin', {
                 email: email,
                 password: password
             }).then(function (res) {
-                localStorage.setItem("Token-admin",res.data.token)  
+                localStorage.setItem("Token",res.data.token)  
                 navigate('*')
                 alert("You logged in successfully!");
                 window.location.reload();
