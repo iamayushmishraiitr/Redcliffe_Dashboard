@@ -23,6 +23,9 @@ const Navbar = ({log}) => {
     const handleClickToHome=()=>{ 
         navigate(`/`);
     }
+    const handleClickToMyOrder=()=>{ 
+      navigate(`/login/myOrder`);
+  }
 
   return (
     <nav className="flex items-center justify-between bg-blue-500 p-6">
@@ -34,6 +37,9 @@ const Navbar = ({log}) => {
           </div>
           <div onClick={handleClickToOrder} className="cursor-pointer inline-block mr-4 hover:text-gray-200">
             Order
+          </div>
+          <div onClick={handleClickToMyOrder} className="cursor-pointer inline-block mr-4 hover:text-gray-200">
+            MyOrder
           </div>
           <div onClick={()=>handleLog(log)} className="cursor-pointer inline-block hover:text-gray-200">
             {log}
