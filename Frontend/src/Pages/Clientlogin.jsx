@@ -22,8 +22,10 @@ const ClientLogin = () => {
                 password: password
             }).then(function (res) {
                 localStorage.setItem("Token:",res.data.token)  
-                navigate('/clientorder/location')
+                console.log()
+                navigate(`/clientorder/${res.data.location}`) 
               })
+
         } catch (err) {
             console.error('Error logging in:', err);
             setError('Invalid email or password');

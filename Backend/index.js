@@ -4,6 +4,8 @@ import cors from "cors";
 import adminRoute from "./Routes/adminRoute.js"
 import clientRoute from "./Routes/clientRoute.js"
 import reagentRoute from "./Routes/reagentRoute.js"
+import clientOrder from "./Routes/clientOrder.js"
+import clientOrderDetails from "./Routes/clientOrderDetails.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -25,3 +27,5 @@ mongoose
 app.use('/admin',adminRoute)
 app.use('/client',clientRoute)
 app.use('/reagent',reagentRoute)
+app.use('/clientOrder',clientOrder)
+app.use('/clientorderDeatils',clientOrderDetails )

@@ -14,6 +14,8 @@ const clientSchema = new mongoose.Schema({
     type: String,
     required: true
   }
+  
+
 });
 export const Client= mongoose.model('clients', clientSchema);
 
