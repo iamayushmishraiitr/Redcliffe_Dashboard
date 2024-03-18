@@ -21,14 +21,14 @@ mongoose
   )
   .then(() => {
     console.log("database is connnected");
-   
-  });
-  app.listen(3000, function () {
-    console.log("server is running on port 3000");
-  }); 
 
-app.use('/admin',adminRoute)
-app.use('/client',clientRoute)
-app.use('/reagent',verifyToken,reagentRoute)
-app.use('/clientOrder',verifyToken,clientOrder)
-app.use('/clientorderDeatils',verifyToken,clientOrderDetails )
+  });
+app.listen(3000, function () {
+  console.log("server is running on port 3000");
+});
+
+app.use('/admin', adminRoute)
+app.use('/client', clientRoute)
+app.use('/reagent', verifyToken, reagentRoute)
+app.use('/clientOrder', verifyToken, clientOrder)
+app.use('/clientorderDeatils', clientOrderDetails)
