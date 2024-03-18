@@ -1,5 +1,4 @@
 import express from "express"
- 
 const router = express.Router()
 import { orderDetail } from "../models/clientOrderDetails.js"
 router.post('/', async (req, res) => {

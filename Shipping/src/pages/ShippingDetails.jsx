@@ -45,7 +45,10 @@ const ShippingDetails = () => {
                         <div className="py-2">{order.units}</div>
                         <div className="py-2">{order.Status}</div>
                         <div className="py-2">
-                            <button onClick={() => handleUpdate(order)} >{placed}</button>
+                            {/* <button onClick={() => handleUpdate(order)} >{placed}</button> */}
+                            <div className="py-2">
+                                <button className="border border-green-500 rounded-md px-2 py-1" onClick={() => handleUpdate(order)}>{placed}</button>
+                            </div>
                         </div>
                     </div>
                 ))}
