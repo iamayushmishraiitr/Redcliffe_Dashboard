@@ -1,23 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+const { Schema } = mongoose;
 
-const clientOrderSchema = new mongoose.Schema({
-  name: {
-    type: String,
-  },
-  location: {
-    type: String,
-  },
-  usedIn: [
-      {
-        type: String,
-        required: true,
-      }
-    ] ,
-     
-    stock: {
-        type: Number,
-      },
-    },
-);
+const stockSchema = new Schema({
+    reagent: { type: String},
+    quantity: { type: Number, default: 0 },
+    class: { type: [String]},
+});
 
-export const ClientOrder = mongoose.model('clientOrder', clientOrderSchema);
+const locationSchema = new Schema({
+    location: { type: String },
+    stock: { type: [stockSchema] }
+});
+
+export const ClientOrder = mongoose.model('ClientOrder', locationSchema);
+

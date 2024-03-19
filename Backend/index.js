@@ -30,5 +30,5 @@ app.listen(3000, function () {
 app.use('/admin', adminRoute)
 app.use('/client', clientRoute)
 app.use('/reagent', verifyToken, reagentRoute)
-app.use('/clientOrder', verifyToken, clientOrder)
-app.use('/clientorderDeatils', clientOrderDetails)
+app.use('/clientOrder',verifyToken ,clientOrder)
+app.use('/clientorderDeatils' ,clientOrderDetails)

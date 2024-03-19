@@ -16,9 +16,11 @@ const Navbar = ({log}) => {
         }
     }
     const handleClickToOrder=()=>{ 
+      if(log==="Login") alert("You are not loged in")
       navigate(`/order-data`);
     }
     const handleClickToData=()=>{ 
+      if(log==="Login") alert("You are not loged in")
       navigate(`/data`);
     }
     const handleClickToHome=()=>{ 

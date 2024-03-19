@@ -17,7 +17,7 @@ const ClientLogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/client", {
+      const res = await axios.post("https://redcliffe-dashboard.vercel.app/client", {
         email: email,
         password: password,
       });
@@ -33,18 +33,6 @@ const ClientLogin = () => {
       console.error("Error logging in:", err);
       setError("Invalid email or password");
     }
-    //  axios.post('http://localhost:3000/client', {
-    //     email: email,
-    //     password: password
-    // }).then(function (res) {
-    //     localStorage.setItem("Token:",res.data.token)
-    //     console.log("loggedin")
-    //     navigate(`/clientorder/${res.data.location}`)
-    //   }).catch(function (err) {
-    //     console.log("error")
-    //     console.error('Error logging in:', err);
-    //     setError('Invalid email or password');
-    // })
   };
 
   return (

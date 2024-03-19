@@ -39,6 +39,7 @@ router.put('/:id', async (req, res) => {
    //    res.status(500).json({ message: "Failed to fetch reagents" });
    // }
    try {
+      
       const updated = await orderDetail.findByIdAndUpdate(
          req.params.id,
          { $set: req.body },

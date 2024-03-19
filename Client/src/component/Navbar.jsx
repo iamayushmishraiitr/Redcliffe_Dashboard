@@ -17,6 +17,7 @@ const Navbar = ({log}) => {
         }
     }
     const handleClickToOrder=()=>{ 
+      if(log==="Login") alert("You are not logged in")
       navigate(`/clientorder/${Location}`);
     }
 
@@ -24,6 +25,7 @@ const Navbar = ({log}) => {
         navigate(`/`);
     }
     const handleClickToMyOrder=()=>{ 
+      if(log==="Login") alert("You are not logged in")
       navigate(`/login/myOrder`);
   }
 

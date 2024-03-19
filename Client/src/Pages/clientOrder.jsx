@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function ClientOrder() {
   const navigate = useNavigate();
@@ -9,16 +9,22 @@ function ClientOrder() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/clientOrder')
+    axios
+      .get("http://localhost:3000/clientOrder", {
+        headers: {
+          token: localStorage.getItem("Token"),
+        },
+      })
       .then((res) => {
-        setData(res.data)
+        console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
-        console.error('Error logging in:', err);
+        console.error("Error logging in:", err);
       });
   }, []);
 
-  const newar = data.filter(prev => (prev.location) === id);
+  const newar = data.filter((prev) => prev.location === id);
 
   return (
     <>
@@ -30,20 +36,34 @@ function ClientOrder() {
             <div>Stock</div>
             <div>Ordered Units</div>
           </div>
-          {newar && newar.map((reagent, index) => (
-            <div key={index} className="grid grid-cols-4 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200">
-              <div className="py-2">{reagent.name}</div>
-              <div className="py-2">{reagent.UsedIn.join(', ')}</div>
-              <div className="py-2">{reagent.stock}</div>
-              <div className="py-2">
-                <button className="border border-green-500 rounded-md px-2 py-1" onClick={() => navigate(`/clientorder/${id}/${reagent.name}`)}>Place The Order</button>
-              </div>
-            </div>
-          ))}
+          {newar &&
+            newar.map((reagent, index) => {
+              const arr = reagent.stock;
+              return arr.map((it, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-4 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200"
+                >
+                  <div className="py-2">{it.reagent}</div>
+                  <div className="py-2">{it.class.join(", ")}</div>
+                  <div className="py-2">{it.quantity}</div>
+                  <div className="py-2">
+                    <button
+                      className="border border-green-500 rounded-md px-2 py-1"
+                      onClick={() =>
+                        navigate(`/clientorder/${id}/${reagent.name}`)
+                      }
+                    >
+                      Place The Order
+                    </button>
+                  </div>
+                </div>
+              ));
+            })}
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default ClientOrder;
