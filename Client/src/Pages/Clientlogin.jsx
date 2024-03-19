@@ -17,7 +17,7 @@ const ClientLogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("https://redcliffe-dashboard.vercel.app/client", {
+      const res = await axios.post("http://localhost:3000/client", {
         email: email,
         password: password,
       });
