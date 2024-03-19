@@ -19,13 +19,18 @@ const ClientOrderDetails = () => {
         name: id2,
         location: id,
       });
-
-      if (res) {
+  
+      if (res.data.message==='Data saved successfully') {
         setOrder("");
         alert("Data saved Successfully");
       }
+      else 
+      {
+        alert(res.data.message) ;
+      }
     } catch (err) {
-      alert("Data not saved Successfully");
+     // console.log(err) ;
+      alert("Data not saved ");
     }
   };
 

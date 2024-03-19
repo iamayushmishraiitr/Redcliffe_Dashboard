@@ -37,7 +37,7 @@ function ClientOrder() {
             <div>Ordered Units</div>
           </div>
           {newar &&
-            newar.map((reagent, index) => {
+            newar.map((reagent) => {
               const arr = reagent.stock;
               return arr.map((it, index) => (
                 <div
@@ -51,7 +51,7 @@ function ClientOrder() {
                     <button
                       className="border border-green-500 rounded-md px-2 py-1"
                       onClick={() =>
-                        navigate(`/clientorder/${id}/${reagent.name}`)
+                        navigate(`/clientorder/${id}/${it.reagent}`)
                       }
                     >
                       Place The Order
@@ -67,3 +67,4 @@ function ClientOrder() {
 }
 
 export default ClientOrder;
+
