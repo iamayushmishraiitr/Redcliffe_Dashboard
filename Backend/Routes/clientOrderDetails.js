@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
    try {
-//=============================================Udating Client Stock======================
+//=============================================Updating Client Stock======================
   const reagentClient = await ClientOrder.findOne({ location: req.body.location });
 const arClient = reagentClient.stock;
 const newar = arClient.filter((prev) => prev.reagent === req.body.name);
@@ -54,7 +54,7 @@ const obj = newar[0];
 const st3 = parseInt(obj.quantity) + parseInt(req.body.units);
 const updatedDocumentClient = await ClientOrder.findOneAndUpdate(
    { "location": req.body.location, "stock.reagent": req.body.name },
-   { $set: { "stock.$.quantity": st3.toString() } },
+   { $set: { "stock.$.quantity": st3 } },
    { new: true }
 );
 
@@ -69,7 +69,7 @@ const options = {
    returnOriginal: true
  };
   const updatedDocument = await Reagent.findOneAndUpdate({name : req.body.name}, update, options); 
-  //================================Udate The Status =========================================================
+  //================================Update The Status =========================================================
       const updated = await orderDetail.findByIdAndUpdate(
          req.params.id,
          { $set: req.body },
