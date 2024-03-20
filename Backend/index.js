@@ -8,10 +8,10 @@ import clientOrder from "./Routes/clientOrder.js"
 import clientOrderDetails from "./Routes/clientOrderDetails.js";
 import verifyToken from "./Authorization/jwtmiddleware.js";
 
-const app = express();
-app.use(express.json());
-// app.use(cors());
 app.use(cors());
+const app = express();
+app.use(express.json()); 
+
 mongoose
   .connect(
     "mongodb+srv://ayushmishra3358:am21410006iitr@project.zmdlyeb.mongodb.net/Project1?retryWrites=true&w=majority&appName=project",
@@ -24,12 +24,18 @@ mongoose
     console.log("database is connnected");
 
   });
+
+  app.get('/', (req, res) => { 
+    res.send("Backend server is running!");
+  });
+
+  app.use('/admin', adminRoute)
+  app.use('/client', clientRoute)
+  app.use('/reagent', verifyToken, reagentRoute)
+  app.use('/clientOrder',verifyToken ,clientOrder)
+  app.use('/clientorderDeatils' ,clientOrderDetails)
+
 app.listen(3000, function () {
   console.log("server is running on port 3000");
 });
 
-app.use('/admin', adminRoute)
-app.use('/client', clientRoute)
-app.use('/reagent', verifyToken, reagentRoute)
-app.use('/clientOrder',verifyToken ,clientOrder)
-app.use('/clientorderDeatils' ,clientOrderDetails)
