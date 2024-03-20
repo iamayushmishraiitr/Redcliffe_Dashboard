@@ -1,4 +1,5 @@
-Project Name
+
+Project Name-inventory management (problem statement -2)
 Overview
 This project is an inventory management system designed for labs, specifically in the context of medical testing. It aims to streamline the process of ordering, tracking, and managing stock of reagents and analyzers used in various tests like blood tests, urine tests, and genetic tests.
 
