@@ -7,9 +7,9 @@ import reagentRoute from "./Routes/reagentRoute.js"
 import clientOrder from "./Routes/clientOrder.js"
 import clientOrderDetails from "./Routes/clientOrderDetails.js";
 import verifyToken from "./Authorization/jwtmiddleware.js";
-
-app.use(cors());
+import OrderDetails from "./Routes/OrderDetails.js"
 const app = express();
+app.use(cors());
 app.use(express.json()); 
 
 mongoose
@@ -34,7 +34,7 @@ mongoose
   app.use('/reagent', verifyToken, reagentRoute)
   app.use('/clientOrder',verifyToken ,clientOrder)
   app.use('/clientorderDeatils' ,clientOrderDetails)
-
+app.use('/OrderDetails',OrderDetails)
 app.listen(3000, function () {
   console.log("server is running on port 3000");
 });

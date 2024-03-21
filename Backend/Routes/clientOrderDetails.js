@@ -33,15 +33,33 @@ router.post('/', async (req, res) => {
 });
 
 
-router.get('/', async (req, res) => {
+router.post('/OrderDetails', async (req, res) => {
    try {
-      const reagents = await orderDetail.find();
+
+      const location = req.body.location
+      console.log(req.body);
+      const reagents = await orderDetail.findOne({ location: location });
+      console.log(reagents)
       res.status(200).json(reagents);
    } catch (error) {
       console.error("Error fetching reagents:", error);
       res.status(500).json({ message: "Failed to fetch reagents" });
    }
 })
+
+router.get('/adminOrderDetails', async (req, res) => {
+   try {
+      
+   
+      const reagents = await orderDetail.find({});
+      console.log(reagents)
+      res.status(200).json(reagents);
+   } catch (error) {
+      console.error("Error fetching reagents:", error);
+      res.status(500).json({ message: "Failed to fetch reagents" });
+   }
+})
+
 
 
 router.put('/:id', async (req, res) => {

@@ -6,7 +6,7 @@ const ShippingDetails = () => {
     const [placed, setPlaced] = useState("Not Delivered");
 
     useEffect(() => {
-        axios.get('http://localhost:3000/clientorderDeatils')
+        axios.get('http://localhost:3000/clientorderDeatils/adminOrderDetails')
             .then((res) => {
                 setData(res.data);
             })

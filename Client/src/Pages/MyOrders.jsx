@@ -5,15 +5,20 @@ const MyOrders = () => {
     const [data, setData] = useState([]);
     
     useEffect(() => {
-        axios.get('http://localhost:3000/clientorderDeatils')
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((err) => {
-                console.error('Error logging in:', err);
-            });
+        console.log(localStorage.getItem('Location-client'));
+        axios.post('http://localhost:3000/OrderDetails', {
+            
+                location: localStorage.getItem('Location-client')    
+        })
+        .then((res) => {
+            console.log(res.data)
+            setData(res.data);
+        })
+        .catch((err) => {
+            console.error('Error fetching data:', err);
+        });
     }, []);
-
+    
     return (
         <div className="container mx-auto mt-8">
             <div className="border border-gray-300 rounded-lg p-4">
@@ -23,7 +28,7 @@ const MyOrders = () => {
                     <div>Quantity</div>
                     <div>Status</div>
                 </div>
-                {data.map((order, index) => (
+                {data && data.map((order, index) => (
                     <div key={index} className="grid grid-cols-4 gap-4 border-t border-gray-300 hover:text-[#0000ff] hover:bg-gray-200">
                         <div className="py-2">{order.name}</div>
                         <div className="py-2">{order.location}</div>
